@@ -10,7 +10,7 @@
 
 	.data{
 		color: theme-color('white');
-		background: color-alpha( theme-color('primary'), .95);
+		background-color: color-alpha( theme-color('primary'), 1);
 		box-shadow: 0 -0.125rem 0.25rem rgba(0, 0, 0, 0.15);
 		overflow: hidden;
 

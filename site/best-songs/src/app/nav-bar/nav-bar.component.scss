@@ -3,13 +3,15 @@
 @import "~bootstrap/scss/mixins";
 @import "../../styles/color-utility";
 
+$enable-prefers-reduced-motion-media-query: false;
+
 .navbar{
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 1000;
 
-	background: color-alpha( theme-color('primary'), .95);
+	background-color: color-alpha( theme-color('primary'), 1);
 
 	.navbar-toggler{
 		border: none;
@@ -105,7 +107,7 @@
 						fill: rgba(255, 255, 255, 0.5);
 					}
 				}
-			}			
+			}
 			&.active{
 				svg{
 					path,
@@ -113,7 +115,7 @@
 						fill: rgba(255, 255, 255, 1);
 					}
 				}
-			}			
+			}
 		}
 	}
 
