@@ -12,21 +12,57 @@ button.hamburger{
 	margin-top: 1px;
 	cursor: pointer;
 	&>div{
-		background: theme-color("white");
+		position: relative;
+		background: color-alpha( theme-color('white'), .5);
 		height: 2px;
 		width: 31px;
 		@include transition();
 		&:nth-of-type(2){
 			margin: 6px 0 6px 0;
 		}
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 50%;
+			width: 0;
+			height: 100%;
+			transform: translateX(-50%);
+			background: color-alpha( theme-color('white'), 1);
+			transition: width .2s ease-in-out;
+		}
+
+		&:nth-of-type(2){
+			&:after{
+				transition-duration: .3s;
+			}
+		}
 	}
-	// &:hover{
-	// 	div{ background: theme-color("primary"); }
-	// }
+
+	&:hover{
+		div{
+			&:first-of-type,
+			&:last-of-type{
+				&:after{
+					transition-duration: .3s;
+				}
+			}
+			&:nth-of-type(2){
+				&:after{
+					transition-duration: .2s;
+				}
+			}
+			&:after{
+				width: 100%;
+			}
+		}
+	}
 
 	&[aria-expanded="false"]{
 		&>div{
-			background: theme-color("white");
+			//background: theme-color("white");
 			&:first-of-type{
 				transform: rotate(45deg);
 				margin-bottom: -2px;

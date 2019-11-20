@@ -18,7 +18,7 @@
 		rect,
 		path{
 			@include transition();
-			fill:theme-color('dark');
+			fill: theme-color('dark');
 		}
 	}
 
@@ -124,6 +124,37 @@
 			path{
 				@include transition();
 				fill: white;
+			}
+		}
+	}
+}
+
+.btn-group-toggle{
+	.btn{
+		cursor: pointer;
+		box-shadow: none !important;
+		color: color-alpha( theme-color('secondary'), .7);
+		svg{
+			path{
+				fill: color-alpha( theme-color('secondary'), .7);
+			}
+		}
+		@include transition();
+		&:hover{
+			color: theme-color('dark');
+			svg{
+				path{
+					fill: theme-color('dark');
+				}
+			}
+		}
+		&.active{
+			box-shadow: none !important;
+			color: theme-color('primary');
+			svg{
+				path{
+					fill: theme-color('primary');
+				}
 			}
 		}
 	}

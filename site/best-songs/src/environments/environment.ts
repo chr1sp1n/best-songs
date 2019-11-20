@@ -9,8 +9,8 @@ export const environment = {
 	YTAPI_URL: 'https://www.googleapis.com/youtube/v3/search',
 	version: {
 		major: 1,
-		minor: 1,
-		revision: 0
+		minor: 2,
+		revision: 1
 	},
 	ytBaseUrl: 'https://www.youtube.com/watch?v=',
 	social:{

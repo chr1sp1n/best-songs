@@ -38,7 +38,7 @@ export class NavBarComponent implements OnInit {
 
 	showStatus(state): void{
 		this.showState[state] = !this.showState[state];
-		
+
 		let active: number = 0;
 		for(let s in this.showState){
 			if(this.showState[s]) ++active;
@@ -46,7 +46,7 @@ export class NavBarComponent implements OnInit {
 		if(active < 1) {
 			this.showState[state] = !this.showState[state];
 			return;
-		}		
+		}
 		this.showByState();
 	}
 
@@ -72,7 +72,6 @@ export class NavBarComponent implements OnInit {
 				break;
 			default:
 		}
-
 		if(component) this.openComponent(component);
 	}
 
@@ -115,10 +114,10 @@ export class NavBarComponent implements OnInit {
 
 		this.bestSongsService.songs.forEach( (s: BestSong, i:number) => {
 			this.bestSongsService.songs[i].visible = false;
-			if(this.showState[1]){			
+			if(this.showState[1]){
 				if(this.bestSongsService.songs[i].id_user == user.id_user){
 					this.bestSongsService.songs[i].visible = true
-				}			
+				}
 			}
 			if(this.showState[2]){
 				if(this.bestSongsService.songs[i].id_user != user.id_user){ //&& this.bestSongsService.songs[i].state == 2){
@@ -129,8 +128,8 @@ export class NavBarComponent implements OnInit {
 				if( this.bestSongsService.songs[i].id_user != user.id_user && this.bestSongsService.songs[i].state == 3){
 					this.bestSongsService.songs[i].visible = true;
 				}
-			}			
-		});	
+			}
+		});
 
 	}
 }

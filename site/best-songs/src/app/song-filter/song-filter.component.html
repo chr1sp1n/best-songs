@@ -1,4 +1,4 @@
-<div class="modal-header">
+<div class="modal-header shadow-sm">
 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 51.913 51.913" style="enable-background:new 0 0 51.913 51.913;" xml:space="preserve">
 		<path d="M50.957,7c0-4.596-12.577-7-25-7s-25,2.404-25,7c0,1.042,0.652,1.97,1.796,2.784l17.204,23.542v17.525l0.062,1.062h1
 			l0.457-0.018l10.481-10.481v-8.088L49.16,9.784C50.305,8.97,50.957,8.042,50.957,7z M25.957,2c14.04,0,23,2.961,23,5s-8.96,5-23,5
@@ -12,7 +12,10 @@
 <div class="modal-body tags-modal">
 	<div class="tags">
 		<div class="form-group">
-			<label for="inputAddress">By tags:</label>
+			<label for="inputAddress">By tags:</label>&nbsp;
+			<button (click)="toggleAllTags()" class="btn btn-link p-0 mr-1">
+				<span class="badge" [ngClass]="{'badge-primary': allTag.state, 'badge-secondary': !allTag.state}" >All</span>
+			</button>
 			<br/>
 			<ul class="list-unstyled">
 				<li class="d-inline" *ngFor="let tag of tags()">
@@ -21,15 +24,6 @@
 					</button>
 				</li>
 			</ul>
-			<button (click)="setAllTag()" class="btn btn-link p-0 mr-1">
-				<span class="badge" [ngClass]="{'badge-primary': allTags.state, 'badge-secondary': !allTags.state}" >All</span>
-			</button>
-			<button (click)="logic(false)" class="btn btn-link p-0 mr-1 ml-2">
-				<span class="badge" [ngClass]="{'badge-primary': !logic(), 'badge-secondary': logic()}" >OR</span>
-			</button>
-			<button (click)="logic(true)" class="btn btn-link p-0 mr-1">
-				<span class="badge" [ngClass]="{'badge-primary': logic(), 'badge-secondary': !logic()}" >AND</span>
-			</button>
 		</div>
 	</div>
 	<hr>
@@ -39,6 +33,18 @@
 				<label for="filterText">By text:</label>
 				<input [(ngModel)]="filterText" name="filterText" required type="text" class="form-control" placeholder="es. World, Hello">
 			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="form-row">
+		<div class="form-group col-12 col-sm">
+			<label for="filterText">Logic:</label>
+			<button (click)="logic(false)" class="btn btn-link p-0 mr-1 ml-2">
+				<span class="badge" [ngClass]="{'badge-primary': !logic(), 'badge-secondary': logic()}" >OR</span>
+			</button>
+			<button (click)="logic(true)" class="btn btn-link p-0 mr-1">
+				<span class="badge" [ngClass]="{'badge-primary': logic(), 'badge-secondary': !logic()}" >AND</span>
+			</button>
 		</div>
 	</div>
 </div>

@@ -19,7 +19,7 @@ export class UserAreaComponent implements OnInit {
 
 	ngOnInit() {
 		this.user = this.userSevice.getUser();
-		console.log(this.user);
+		//console.log(this.user);
 	}
 
 	signOut(){
@@ -28,6 +28,6 @@ export class UserAreaComponent implements OnInit {
 	}
 
 	save(){
-		console.log(this.user);
+		//console.log(this.user);
 	}
 }

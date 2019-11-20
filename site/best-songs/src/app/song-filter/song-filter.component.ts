@@ -16,7 +16,7 @@ import { Tag } from '../_models/tag';
 
 export class SongFilterComponent implements OnInit {
 
-	allTags: Tag = new Tag('All');
+	allTag: Tag = new Tag('All');
 	filterText: string = '';
 
 	constructor(
@@ -57,50 +57,50 @@ export class SongFilterComponent implements OnInit {
 		this.filter(false);
 	}
 
-	setAllTag(){
-		this.allTags.state = !this.allTags.state;
+	toggleAllTags(){
+		this.allTag.state = !this.allTag.state;
 		this.bestSongsService.tags.forEach( (t: Tag, i:number ) => {
-			this.bestSongsService.tags[i].state = this.allTags.state;
+			this.bestSongsService.tags[i].state = this.allTag.state;
 		});
 		this.filter(false);
 	}
 
 	filter(close?:boolean){
 
-		let tags = this.bestSongsService.tags.filter( t => { return t.state });
-
 		if( this.filterText && this.filterText.trim().toString() != this.bestSongsService.filterText ){
 			this.bestSongsService.filterText = this.filterText.trim().toString();
 		}
 
+		let tags = this.bestSongsService.tags.filter( t => { return t.state });
 		this.bestSongsService.songs.forEach( (s: BestSong, i:number) => {
 
 			this.bestSongsService.songs[i].visible = true;
 
 			if(tags.length > 0){
-				if(!this.bestSongsService.filterLogic){
-					this.bestSongsService.songs[i].visible = false;
-					tags.forEach( (t: Tag) => {
-						if( s.songsHasTag(t.label) ) {
-							this.bestSongsService.songs[i].visible = true;
-						}
-					});
-				}else{
+				if(this.bestSongsService.filterLogic){ // AND
 					this.bestSongsService.songs[i].visible = true;
 					tags.forEach( (t:Tag) => {
 						if( !s.songsHasTag(t.label) ) {
 							this.bestSongsService.songs[i].visible = false;
 						}
 					});
+				}else{ // OR
+					this.bestSongsService.songs[i].visible = false;
+					tags.forEach( (t: Tag) => {
+						if( s.songsHasTag(t.label) ) {
+							this.bestSongsService.songs[i].visible = true;
+						}
+					});
 				}
 			}
 
-
-			if( this.bestSongsService.filterText &&
-				this.bestSongsService.filterText != '' &&
-				this.bestSongsService.songs[i].title.indexOf( this.bestSongsService.filterText ) == -1
-			){
-				this.bestSongsService.songs[i].visible = false;
+			if(this.bestSongsService.filterLogic || tags.length == 0){
+				if( this.bestSongsService.filterText &&
+					this.bestSongsService.filterText != '' &&
+					this.bestSongsService.songs[i].title.indexOf( this.bestSongsService.filterText ) == -1
+				){
+					this.bestSongsService.songs[i].visible = false;
+				}
 			}
 
 		});

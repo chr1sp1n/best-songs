@@ -3,6 +3,8 @@ import { BestSong } from '../_models/best-song';
 //import { bestSongsService } from './yt-player.service';
 import { BestSongsService } from '../_services/best-songs/best-songs.service';
 import { interval } from 'rxjs';
+import { Title }     from '@angular/platform-browser';
+import { environment } from '../../environments/environment';
 
 @Component({
 	selector: 'app-yt-player',
@@ -28,7 +30,8 @@ export class YtPlayerComponent implements OnInit {
 
 	constructor(
 		private bestSongsService: BestSongsService,
-		private zone: NgZone
+		private zone: NgZone,
+		private titleService: Title
 	) { }
 
 	ngOnInit() {
@@ -58,7 +61,7 @@ export class YtPlayerComponent implements OnInit {
 			this.player.playVideo();
 			// this.timerPercentage = interval(1000).subscribe(() => {
 			// 	this.getPrecentage();
-			// });			
+			// });
 		}
 	}
 
@@ -197,7 +200,7 @@ export class YtPlayerComponent implements OnInit {
 	private playerHandler(song: BestSong){
 		if( song.id_best_songs == this.playingSong.id_best_songs ){
 			if( song.status == 'PLAYING' ){
-				this.player.playVideo();	
+				this.player.playVideo();
 			}else if( song.status == 'PAUSED' ){
 				this.player.pauseVideo();
 			}else{
@@ -229,6 +232,7 @@ export class YtPlayerComponent implements OnInit {
 				}
 				this.bestSongsService.fromPlayer.emit( this.bestSongsService.songs[i] );
 				if(isDevMode()) console.log('PLAYER -> ' + this.bestSongsService.songs[i].status + ': ' + this.bestSongsService.songs[i].title);
+				this.titleService.setTitle( s.songTitle() + ' - ' + s.songArtist() + ' | ' + environment.appName);
 			}
 		});
 	}
@@ -261,14 +265,14 @@ export class YtPlayerComponent implements OnInit {
 							this.setSongsStatus('PLAYING');
 							this.zone.run( () => { this.progress = this.getTime(); });
 							this.timeCouter = interval(500).subscribe(() => {
-								this.zone.run( () => { 
-									this.progress = this.getTime(); 
+								this.zone.run( () => {
+									this.progress = this.getTime();
 								});
 								this.getPrecentage();
 							});
 							break;
 						case window['YT'].PlayerState.PAUSED:
-							this.setSongsStatus('PAUSED');					
+							this.setSongsStatus('PAUSED');
 							this.zone.run( () => { if(this.timeCouter) this.timeCouter.unsubscribe() });
 							break;
 						case window['YT'].PlayerState.BUFFERING:

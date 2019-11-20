@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -77,6 +77,7 @@ export function getAuthServiceConfigs() {
 		SocialLoginModule
 	],
 	providers: [
+		Title,
 		{
 			provide: AuthServiceConfig,
 			useFactory: getAuthServiceConfigs

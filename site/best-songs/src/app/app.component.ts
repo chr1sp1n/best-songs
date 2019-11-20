@@ -20,8 +20,9 @@ export class AppComponent {
 		this.userService.userChange.subscribe( (state: boolean) => {
 			this.authenticated = state;
 		});
-
 		this.authenticated = this.userService.state();
 	}
+
+
 
 }

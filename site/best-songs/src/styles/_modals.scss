@@ -1,4 +1,17 @@
 .modal-header{
+	padding: .6em 1em;
+	background-color: color-alpha( theme-color('primary'), 1);
+	color: theme-color('white');
+	h4{
+		text-transform: uppercase;
+	}
+
+	svg{
+		fill: theme-color('white');
+		path{
+			fill: theme-color('white');
+		}
+	}
 	&>*{
 		vertical-align: middle;
 	}
