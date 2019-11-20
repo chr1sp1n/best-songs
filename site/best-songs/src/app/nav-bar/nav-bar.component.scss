@@ -10,7 +10,6 @@ $enable-prefers-reduced-motion-media-query: false;
 	top: 0;
 	width: 100%;
 	z-index: 1000;
-
 	background-color: color-alpha( theme-color('primary'), 1);
 
 	.modal-toggler,
@@ -32,14 +31,16 @@ $enable-prefers-reduced-motion-media-query: false;
 	.navbar-brand{
 		padding: 0;
 		svg{
-			width: 38px;
+			width: 32px;
 			height: auto;
 			rect,
 			path,
 			polygon{
 				@include transition();
-				fill: $white;
+				//fill: $white;
 			}
+			margin-left: -2px;
+			margin-right: 8px;
 		}
 		p{
 			margin:4px 0 0 0;

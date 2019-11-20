@@ -8,7 +8,7 @@ export const environment = {
 	version: {
 		major: 1,
 		minor: 2,
-		revision: 1
+		revision: 5
 	},
 	ytBaseUrl: 'https://www.youtube.com/watch?v=',
 	social:{

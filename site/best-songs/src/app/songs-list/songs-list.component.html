@@ -92,7 +92,7 @@
 					</div>
 				</div>
 				<div [id]="song.domIdDet()" class="item-details mt-1" [ngbCollapse]="!song.open">
-					<div class="d-flex align-items-center">
+					<div class="d-flex align-items-end">
 						<div class="tags flex-grow-1 pr-2">
 							<ul class="list-unstyled" [ngClass]="{'mr-2': !owner(song) && song.songTags().length > 0}">
 								<li *ngFor="let tag of song.songTags()">
