@@ -1,0 +1,61 @@
+<div class="modal-header">
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 51.913 51.913" style="enable-background:new 0 0 51.913 51.913;" xml:space="preserve">
+		<path d="M50.957,7c0-4.596-12.577-7-25-7s-25,2.404-25,7c0,1.042,0.652,1.97,1.796,2.784l17.204,23.542v17.525l0.062,1.062h1
+			l0.457-0.018l10.481-10.481v-8.088L49.16,9.784C50.305,8.97,50.957,8.042,50.957,7z M25.957,2c14.04,0,23,2.961,23,5s-8.96,5-23,5
+			s-23-2.961-23-5S11.917,2,25.957,2z"/>
+	</svg>
+	<h4 class="modal-title">Songs filter</h4>
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="modal-body tags-modal">
+	<div class="tags">
+		<div class="form-group">
+			<label for="inputAddress">By tags:</label>
+			<br/>
+			<ul class="list-unstyled">
+				<li class="d-inline" *ngFor="let tag of tags()">
+					<button (click)="toggleTag(tag)" class="btn btn-link p-0 mr-1">
+						<span class="badge" [ngClass]="{'badge-primary': tag.state, 'badge-secondary': !tag.state}" >{{tag.label}}</span>
+					</button>
+				</li>
+			</ul>
+			<button (click)="setAllTag()" class="btn btn-link p-0 mr-1">
+				<span class="badge" [ngClass]="{'badge-primary': allTags.state, 'badge-secondary': !allTags.state}" >All</span>
+			</button>
+			<button (click)="logic(false)" class="btn btn-link p-0 mr-1 ml-2">
+				<span class="badge" [ngClass]="{'badge-primary': !logic(), 'badge-secondary': logic()}" >OR</span>
+			</button>
+			<button (click)="logic(true)" class="btn btn-link p-0 mr-1">
+				<span class="badge" [ngClass]="{'badge-primary': logic(), 'badge-secondary': !logic()}" >AND</span>
+			</button>
+		</div>
+	</div>
+	<hr>
+	<div class="song-tags-form">
+		<div class="form-row">
+			<div class="form-group col-12 col-sm">
+				<label for="filterText">By text:</label>
+				<input [(ngModel)]="filterText" name="filterText" required type="text" class="form-control" placeholder="es. World, Hello">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button (click)="filter()" type="button" class="btn btn-primary">
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 51.913 51.913" style="enable-background:new 0 0 51.913 51.913;" xml:space="preserve">
+			<path d="M50.957,7c0-4.596-12.577-7-25-7s-25,2.404-25,7c0,1.042,0.652,1.97,1.796,2.784l17.204,23.542v17.525l0.062,1.062h1
+				l0.457-0.018l10.481-10.481v-8.088L49.16,9.784C50.305,8.97,50.957,8.042,50.957,7z M25.957,2c14.04,0,23,2.961,23,5s-8.96,5-23,5
+				s-23-2.961-23-5S11.917,2,25.957,2z"/>
+		</svg>
+		<span class="ml-2">Filter</span>
+	</button>
+	<button (click)="reset()" type="button" class="btn btn-dark">
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32.526 32.526" style="enable-background:new 0 0 32.526 32.526;" xml:space="preserve">
+			<polygon points="32.526,2.828 29.698,0 16.263,13.435 2.828,0 0,2.828 13.435,16.263 0,29.698 2.828,32.526 16.263,19.091 29.698,32.526 32.526,29.698 19.091,16.263 "/>
+		</svg>
+		<span class="ml-2">Reset</span>
+	</button>
+	<button (click)="activeModal.dismiss()" type="button" class="btn btn-outline-dark">Close</button>
+</div>

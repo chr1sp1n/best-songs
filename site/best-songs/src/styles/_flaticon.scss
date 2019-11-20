@@ -1,0 +1,100 @@
+/*
+	Flaticon icon font: Flaticon
+	Creation date: 13/02/2019 20:23
+*/
+
+@font-face {
+	family: "Flaticon";
+	src: url("/assets/best-songs/font/Flaticon.eot");
+	src: url("/assets/best-songs/font/Flaticon.eot?#iefix") format("embedded-opentype"),
+		 url("/assets/best-songs/font/Flaticon.woff2") format("woff2"),
+		 url("/assets/best-songs/font/Flaticon.woff") format("woff"),
+		 url("/assets/best-songs/font/Flaticon.ttf") format("truetype"),
+		 url("/assets/best-songs/font/Flaticon.svg#Flaticon") format("svg");
+	weight: normal;
+	style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		family: "Flaticon";
+		src: url("/assets/best-songs/font/Flaticon.svg#Flaticon") format("svg");
+	}
+}
+
+.fi:before{
+	display: inline-block;
+	family: "Flaticon";
+	style: normal;
+	weight: normal;
+	variant: normal;
+	line-height: 1;
+	text-decoration: inherit;
+	text-rendering: optimizeLegibility;
+	text-transform: none;
+	-moz-osx-smoothing: grayscale;
+	-webkit-smoothing: antialiased;
+	smoothing: antialiased;
+}
+
+.icon-repeat:before { content: "\f100"; }
+.icon-add:before { content: "\f101"; }
+.icon-random:before { content: "\f102"; }
+.icon-next:before { content: "\f103"; }
+.icon-prev:before { content: "\f104"; }
+.icon-typography:before { content: "\f105"; }
+.icon-users:before { content: "\f106"; }
+.icon-user:before { content: "\f107"; }
+.icon-play:before { content: "\f108"; }
+.icon-edit:before { content: "\f109"; }
+.icon-video-player:before { content: "\f10a"; }
+.icon-search:before { content: "\f10b"; }
+.icon-global:before { content: "\f10c"; }
+.icon-tag:before { content: "\f10d"; }
+.icon-best-songs:before { content: "\f10e"; }
+.icon-filter:before { content: "\f10f"; }
+.icon-trash:before { content: "\f110"; }
+.icon-save:before { content: "\f111"; }
+.icon-sort-a-to-z:before { content: "\f112"; }
+.icon-sort-z-to-a:before { content: "\f113"; }
+.icon-sort-9-to-0:before { content: "\f114"; }
+.icon-sort-0-to-9:before { content: "\f115"; }
+.icon-play-random:before { content: "\f116"; }
+.icon-cloud-error:before { content: "\f117"; }
+.icon-pause:before { content: "\f118"; }
+.icon-on:before { content: "\f119"; }
+.icon-off:before { content: "\f11a"; }
+.icon-settings:before { content: "\f11b"; }
+.icon-cloud-search:before { content: "\f11c"; }
+.icon-youtube:before { content: "\f11d"; }
+    
+$icon-repeat: "\f100";
+$icon-add: "\f101";
+$icon-random: "\f102";
+$icon-next: "\f103";
+$icon-prev: "\f104";
+$icon-typography: "\f105";
+$icon-users: "\f106";
+$icon-user: "\f107";
+$icon-play: "\f108";
+$icon-edit: "\f109";
+$icon-video-player: "\f10a";
+$icon-search: "\f10b";
+$icon-global: "\f10c";
+$icon-tag: "\f10d";
+$icon-best-songs: "\f10e";
+$icon-filter: "\f10f";
+$icon-trash: "\f110";
+$icon-save: "\f111";
+$icon-sort-a-to-z: "\f112";
+$icon-sort-z-to-a: "\f113";
+$icon-sort-9-to-0: "\f114";
+$icon-sort-0-to-9: "\f115";
+$icon-play-random: "\f116";
+$icon-cloud-error: "\f117";
+$icon-pause: "\f118";
+$icon-on: "\f119";
+$icon-off: "\f11a";
+$icon-settings: "\f11b";
+$icon-cloud-search: "\f11c";
+$icon-youtube: "\f11d";

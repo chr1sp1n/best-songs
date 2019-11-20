@@ -1,0 +1,86 @@
+<div id="user-auth" class="container center-center">
+	<div class="brand text-center">
+		<svg class="d-inline-block" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+			<g>
+				<rect x="5" y="10" width="3" height="40"/>
+				<rect x="52" y="10" width="3" height="40"/>
+				<rect x="57" y="14" width="3" height="32"/>
+				<rect y="14" width="3" height="32"/>
+				<path d="M10,54h40V6H10V54z M19.5,36c1.746,0,3.331,0.642,4.5,1.68V24v-2.714V18c0-0.492,0.358-0.911,0.844-0.987l19-3
+					c0.29-0.047,0.583,0.037,0.805,0.228C44.872,14.43,45,14.708,45,15v1v5v15c0,3.309-2.916,6-6.5,6S32,39.309,32,36s2.916-6,6.5-6
+					c1.746,0,3.331,0.642,4.5,1.68V22.17l-17,2.684v17.248c0,0.013-0.007,0.025-0.008,0.038C25.911,45.383,23.033,48,19.5,48
+					c-3.584,0-6.5-2.691-6.5-6S15.916,36,19.5,36z"/>
+			</g>
+		</svg>
+		<div class="text-left brand-text">
+			<h2 class="text-uppercase">{{appName()}}</h2>
+			<p>{{version()}}</p>
+		</div>
+	</div>
+	<div class="jumbotron mt-3">
+		<div class="text-center pb-2 border-bottom">
+			<h2>Sign in</h2>
+		</div>
+		<div class="sign-in mt-3 pb-3 border-bottom">
+			<div class="">
+				<form #userSignIn="ngForm">
+					<div class="form-group">
+						<label for="inputEmail">Email address</label>
+						<input [(ngModel)]="formData.email" required name="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword">Password</label>
+						<input [(ngModel)]="formData.password" required name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+					</div>
+					<button (click)="signIn()" type="submit" class="btn btn-primary">Sign-In</button>
+				</form>
+			</div>
+		</div>
+		<div class="social mt-3 text-center pb-4 border-bottom">
+			<p>You can <span>also</span> sign in with your social network:</p>
+			<button (click)="signIn('google')" type="button" class="btn mx-1 google">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="90px" height="90px" viewBox="0 0 90 90" style="enable-background:new 0 0 90 90;" xml:space="preserve">
+					<g>
+						<path id="Google" d="M74.499,0H50.144c-6.382,0-14.421,0.942-21.158,6.49c-5.09,4.374-7.566,10.392-7.566,15.828
+							c0,9.211,7.094,18.546,19.625,18.546c1.182,0,2.477-0.12,3.787-0.235c-0.592,1.413-1.189,2.594-1.189,4.605
+							c0,3.662,1.893,5.902,3.547,8.029c-5.314,0.353-15.249,0.942-22.583,5.428c-6.975,4.143-9.107,10.16-9.107,14.414
+							C15.499,81.846,23.778,90,40.923,90c20.336,0,31.098-11.22,31.098-22.33c0-8.143-4.729-12.164-9.932-16.534l-4.258-3.305
+							c-1.295-1.065-3.068-2.479-3.068-5.08c0-2.597,1.773-4.254,3.307-5.789c4.964-3.896,9.933-8.03,9.933-16.77
+							c0-8.979-5.68-13.704-8.396-15.947h7.334L74.499,0z M64.103,72.279c0,7.322-6.033,12.753-17.385,12.753
+							c-12.648,0-20.809-6.024-20.809-14.405c0-8.393,7.568-11.218,10.166-12.164c4.969-1.656,11.352-1.891,12.414-1.891
+							c1.184,0,1.775,0,2.725,0.115C60.202,63.064,64.103,66.257,64.103,72.279z M54.642,34.249c-1.893,1.886-5.088,3.305-8.045,3.305
+							c-10.164,0-14.772-13.113-14.772-21.023c0-3.072,0.592-6.258,2.598-8.74c1.893-2.362,5.201-3.899,8.277-3.899
+							c9.812,0,14.899,13.229,14.899,21.73C57.599,27.752,57.358,31.528,54.642,34.249z"/>
+					</g>
+				</svg>
+				<span>Google</span>
+			</button>
+			<!-- <button (click)="signIn('facebook')" type="button" class="btn mx-1 facebook">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="96.124px" height="96.123px" viewBox="0 0 96.124 96.123" style="enable-background:new 0 0 96.124 96.123;" xml:space="preserve">
+					<g>
+						<path d="M72.089,0.02L59.624,0C45.62,0,36.57,9.285,36.57,23.656v10.907H24.037c-1.083,0-1.96,0.878-1.96,1.961v15.803
+							c0,1.083,0.878,1.96,1.96,1.96h12.533v39.876c0,1.083,0.877,1.96,1.96,1.96h16.352c1.083,0,1.96-0.878,1.96-1.96V54.287h14.654
+							c1.083,0,1.96-0.877,1.96-1.96l0.006-15.803c0-0.52-0.207-1.018-0.574-1.386c-0.367-0.368-0.867-0.575-1.387-0.575H56.842v-9.246
+							c0-4.444,1.059-6.7,6.848-6.7l8.397-0.003c1.082,0,1.959-0.878,1.959-1.96V1.98C74.046,0.899,73.17,0.022,72.089,0.02z"/>
+					</g>
+				</svg>
+				<span>Facebook</span>
+			</button>
+			<button (click)="signIn('linkedin')" type="button" class="btn mx-1 linkedin">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="430.117px" height="430.117px" viewBox="0 0 430.117 430.117" style="enable-background:new 0 0 430.117 430.117;" xml:space="preserve">
+					<g>
+						<path id="LinkedIn" d="M430.117,261.543V420.56h-92.188V272.193c0-37.271-13.334-62.707-46.703-62.707
+							c-25.473,0-40.632,17.142-47.301,33.724c-2.432,5.928-3.058,14.179-3.058,22.477V420.56h-92.219c0,0,1.242-251.285,0-277.32h92.21
+							v39.309c-0.187,0.294-0.43,0.611-0.606,0.896h0.606v-0.896c12.251-18.869,34.13-45.824,83.102-45.824
+							C384.633,136.724,430.117,176.361,430.117,261.543z M52.183,9.558C20.635,9.558,0,30.251,0,57.463
+							c0,26.619,20.038,47.94,50.959,47.94h0.616c32.159,0,52.159-21.317,52.159-47.94C103.128,30.251,83.734,9.558,52.183,9.558z
+							M5.477,420.56h92.184v-277.32H5.477V420.56z"/>
+					</g>
+				</svg>
+				<span>LinkedIn</span>
+			</button> -->
+		</div>
+		<small class="mt-4 text-center d-block">Registering to this website, you accept our Terms of Use and our Privacy Policy.</small>
+	</div>
+</div>

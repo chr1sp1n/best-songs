@@ -1,0 +1,8 @@
+@import "~bootstrap/scss/functions";
+@import "./styles/variables";
+@import "~bootstrap/scss/mixins";
+@import "./color-utility";
+
+.border-half-primary{
+	border-color: color-alpha( theme-color("white"), .15 ) !important;
+}

@@ -1,0 +1,54 @@
+
+/* Body example
+{
+	"id_user": 0,
+	"email": "chr1sp1n.dev@gmail.com"
+}
+*/
+'use strict';
+
+const logger = require('../shared/logger');
+const responseObj = require('../shared/response');
+const dbUsersRead = require('../services/db/users/read');
+const sender = require('../shared/sender');
+
+
+module.exports = (req, res) => {
+
+	logger.debug("Client request: " + req.url);
+
+	var user = req.body;
+
+	if(!user.id_user && !user.email){
+		responseObj.errors.push({
+			status: 500,
+			code: 'INVALID_PARAMETER',
+			message: 'Invalid parameter'
+		});
+		sender(res, responseObj);
+		return;
+	}else{
+		sender(res, responseObj);
+	}
+
+	dbUsersRead(req.body).then(
+		(results) => {
+
+			if(typeof results == 'Array' && results.logger > 0){
+				responseObj.data = results[0];
+			}else{
+				responseObj.errors.push({
+					status: 500,
+					code: 'GENERIC_DB_ERROR',
+					message: 'Generic DB error'
+				});
+			}
+			sender(res, responseObj);
+		}
+	).catch(
+		(error) => {
+			sender(res, responseObj);
+		}
+	);
+
+}

@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/functions";
+@import "../../styles/variables";
+@import "~bootstrap/scss/mixins";
+
+.song-editor-form{
+	.btn[title="Capitalize"]{
+		svg{
+			@include media-breakpoint-up(sm) {
+				margin-right:0;
+			}
+		}
+	}
+}

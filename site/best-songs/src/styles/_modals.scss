@@ -1,0 +1,11 @@
+.modal-header{
+	&>*{
+		vertical-align: middle;
+	}
+	svg{
+		width: auto;
+		height: 1.7em;
+		margin-right: 1em;
+		margin-top: .15em;
+	}
+}

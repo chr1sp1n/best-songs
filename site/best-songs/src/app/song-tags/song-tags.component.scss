@@ -1,0 +1,30 @@
+@import "~bootstrap/scss/functions";
+@import "../../styles/variables";
+@import "~bootstrap/scss/mixins";
+
+.song-tags-form{
+	.btn[title="Add Tags"]{
+		svg{
+			@include media-breakpoint-up(sm) {
+				margin-right:0;
+			}
+		}
+	}
+
+
+}
+
+.tags-modal{
+
+	.tags{
+		ul, li{
+			display: inline;
+		}
+		&>button{
+			.badge{
+				background: theme-color("secondary");
+				color: theme-color("white");
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+[Unit]
+Description=Best-Songs API
+
+[Service]
+ExecStart=/home/services/js_projects/best-songs/api/index.js
+Restart=always
+User=nobody
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/services/js_projects/best-songs/api
+Environment=SYSTEMD_LOG_LEVEL=debug
+
+[Install]
+WantedBy=multi-user.target

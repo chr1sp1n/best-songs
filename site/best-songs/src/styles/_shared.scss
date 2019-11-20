@@ -1,0 +1,14 @@
+button{
+	&:focus,
+	&:active,
+	&.active{
+		box-shadow: none !important;
+	}
+}
+
+.center-center{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}

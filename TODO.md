@@ -1,0 +1,15 @@
+-	update user data
+-	fix error on token expired
+-	search
+-	fix auto scroll to song
+-	fix auto open video player
+-   OK	error on close modals
+-   OK	youtube base url in config
+-	default configuration for filters and showed songs
+-	floting window for filters, search and showed songs on xl
+-	active progress bar in player
+-   OK	tags editor sort tags
+-	"Shared with" label position in Edit song modal
+- 	activity log
+-	fix tags manual introduction
+-	cookie disclaimer

@@ -1,0 +1,130 @@
+@import "~bootstrap/scss/functions";
+@import "variables";
+@import "~bootstrap/scss/mixins";
+
+.btn{
+	&>*:not(.badge){
+		vertical-align: middle;
+		line-height: 0;
+	}
+	&:active,
+	&:focus{
+		box-shadow: none !important;
+	}
+	svg{
+		width: .9em;
+		height: auto;
+		polygon,
+		rect,
+		path{
+			@include transition();
+			fill:theme-color('dark');
+		}
+	}
+
+	&.btn-outline-dark{
+		&:hover{
+			svg{
+				polygon,
+				rect,
+				path{
+					fill: theme-color('white');
+				}
+			}
+		}
+	}
+
+	&.btn-primary{
+		svg{
+			polygon,
+			rect,
+			path{
+				fill: theme-color('white');
+			}
+		}
+		&:hover{
+			svg{
+				polygon,
+				rect,
+				path{
+					fill: theme-color('white');
+				}
+			}
+		}
+	}
+
+
+	&.btn-dark{
+		svg{
+			polygon,
+			rect,
+			path{
+				fill: theme-color('white');
+			}
+		}
+	}
+
+
+	&.facebook{
+		background-color: #3b5998;
+		color: white;
+		&:focus,
+		&:active,
+		&.active{
+			color: white;
+		}
+
+		svg{
+			margin-right: 8px;
+			width: 1.3em;
+			polygon,
+			rect,
+			path{
+				@include transition();
+				fill: white;
+			}
+		}
+	}
+
+	&.google{
+		background-color: #db3236;
+		color: white;
+		&:focus,
+		&:active,
+		&.active{
+			color: white;
+		}
+
+		svg{
+			margin-right: 8px;
+			width: 1.3em;
+			polygon,
+			rect,
+			path{
+				@include transition();
+				fill: white;
+			}
+		}
+	}
+
+	&.linkedin{
+		background-color: #4875B4;
+		color: white;
+		&:focus,
+		&:active,
+		&.active{
+			color: white;
+		}
+
+		svg{
+			margin-right: 8px;
+			width: 1.3em;
+			polygon,
+			rect,
+			path{
+				@include transition();
+				fill: white;
+			}
+		}
+	}
+}

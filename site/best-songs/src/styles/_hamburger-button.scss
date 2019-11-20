@@ -1,0 +1,45 @@
+@import "~bootstrap/scss/functions";
+@import "variables";
+@import "~bootstrap/scss/mixins";
+
+button.hamburger{
+	outline: none;
+	background: transparent;
+	border: none;
+	height: 27px;
+	margin: 0;
+	padding: 0;
+	margin-top: 1px;
+	cursor: pointer;
+	&>div{
+		background: theme-color("white");
+		height: 2px;
+		width: 31px;
+		@include transition();
+		&:nth-of-type(2){
+			margin: 6px 0 6px 0;
+		}
+	}
+	// &:hover{
+	// 	div{ background: theme-color("primary"); }
+	// }
+
+	&[aria-expanded="false"]{
+		&>div{
+			background: theme-color("white");
+			&:first-of-type{
+				transform: rotate(45deg);
+				margin-bottom: -2px;
+			}
+			&:nth-of-type(2){
+				margin:0;
+				opacity: 0;
+				visibility: hidden;
+			}
+			&:last-of-type{
+				transform: rotate(-45deg);
+				margin-top: -2px;
+			}
+		}
+	}
+}

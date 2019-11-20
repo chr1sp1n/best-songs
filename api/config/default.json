@@ -1,0 +1,53 @@
+{
+	"db":{
+		"host": "localhost",
+		"user": "notes",
+		"password": "notes",
+		"database": "notes",
+		"connectTimeout": 1000
+	},
+	"throw_on_error": false,
+	"meta":{
+		"copyright": "Copyright 2018 chr1sp1n-dev",
+		"authors": [ "chr1sp1n-dev" ],
+		"api_version": "1.0.0"
+	},
+	"log_level": "debug",
+	"server": {
+		"hostname": "127.0.0.1",
+		"port": 8180
+	},
+
+	"cors": {
+		"origin" : [
+			"http://localhost:4200",
+			"https://bestsongs.christianspinelli.com",
+			"https://bestsongs.chr1sp1n-dev.cloud"
+		],
+		"optionsSuccessStatus": 204,
+		"methods": ["GET", "PATCH", "POST", "DELETE"],
+		"allowedHeaders": ["Content-Type", "Authorization"],
+		"credentials": true
+	},
+
+	"auth":{
+		"secret": "ciao ciao",
+		"expiration": 3600
+	},
+
+	"social":{
+		"facebook":{
+			"ID_client": "260081744611303"
+		},
+		"google":{
+			"ID_client": "876847483886-icf0hr9ho26peecchpj5t5a6acv3dgf4.apps.googleusercontent.com",
+			"client_secret": "J34y_PvY7ah7bRDetOyeEOz2"
+		},
+		"linkedin":{
+
+		}
+	}
+
+
+
+}

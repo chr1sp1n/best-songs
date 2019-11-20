@@ -1,0 +1,7 @@
+node_modules
+
+.tmp				# Temporary folder
+dev					# Compiled files in development mode
+dist				# Compiled files in distribution mode
+
+NO.git

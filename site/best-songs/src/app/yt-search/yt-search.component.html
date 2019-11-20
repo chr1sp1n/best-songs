@@ -1,0 +1,25 @@
+<div *ngIf="hasResults()" class="border-top pt-4">
+	<div *ngFor="let item of currentResult.items" class="row mb-2">
+		<div class="col-12 col-lg-4 text-center mb-3">
+			<img class="img-thumbnail mx-auto d-block" src="{{item.snippet.thumbnails.medium.url}}" alt="">
+			<div class="mt-2">
+				<span>ID video: </span>
+				<b>{{item.id.videoId}}</b>
+			</div>
+		</div>
+		<div class="col-12 col-sm-9 col-lg-6 mb-3">
+			<h5>{{item.snippet.title}}</h5>
+			<span>{{item.snippet.description}}</span>
+		</div>
+		<div class="col-12 col-sm-3 col-lg-2 text-center text-sm-right mb-3">
+			<button (click)="select(item.id.videoId)" type="button" class="btn btn-primary">
+				Select
+			</button>
+		</div>
+	</div>
+	<div class="text-center pt-1">
+		<button (click)="search(true)" type="button" class="btn btn-outline-dark">
+			More results
+		</button>
+	</div>
+</div>

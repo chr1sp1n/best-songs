@@ -1,0 +1,159 @@
+@import "~bootstrap/scss/functions";
+@import "../../styles/variables";
+@import "~bootstrap/scss/mixins";
+
+.songs-list{
+	overflow: hidden;
+	//margin-bottom: 16px !important;
+
+	.m-player{
+		margin-bottom: 119px !important;
+		@include media-breakpoint-up(xl){
+			margin-bottom: 32px !important;
+		}
+	}
+
+	.item{
+		width:100%;
+		position: relative;
+		&>button{
+			background: transparent;
+			min-height: 36px;
+
+			&:active,
+			&:focus{
+				box-shadow: none;
+			}
+			.tags-rating{
+				.badge{
+					svg{ vertical-align: top; }
+				}
+			}
+			h5{
+				font-size: 1em;
+				font-weight: 500;
+				line-height: 1.25;
+				overflow: hidden;
+				white-space: normal;
+				@include media-breakpoint-up(md) {
+					font-size: 1.25em;
+					font-weight: 600;
+					line-height: 1.5;
+				}
+			}
+			span{
+				font-size: .85em;
+				line-height: 1.1;
+				white-space: normal;
+			}
+		}
+		svg.art{
+			width: 32px;
+			height: auto;
+			rect,
+			path,
+			polygon{
+				fill: theme-color("secondary");
+			}
+		}
+		.actions {
+			position: absolute;
+			//top: 5px;
+			right: 5px;
+			background: theme-color("white");
+			svg{
+				width: 18px;
+				height: auto;
+				rect,
+				path,
+				polygon{
+					fill: theme-color("secondary");
+				}
+				&.red{
+					path,
+					rect{
+						fill: theme-color('danger');
+					}
+				}
+			}
+		}
+
+		&>button[aria-expanded="true"]{
+			h5{ color: theme-color('primary') }
+			span{ color: theme-color('primary') }
+		}
+	}
+
+	.video{
+		background: theme-color("dark");
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+		&.open{
+			height: 170px;
+			@include media-breakpoint-up(md) {
+				height: 350px;
+			}
+		}
+	}
+
+	.item-details{
+
+		.owner-info{
+			svg{
+				width: 18px;
+				height: auto;
+			}
+		}
+
+		.actions{
+			line-height: 0;
+			white-space: nowrap;
+			button{
+				line-height: 0;
+			}
+			svg{
+				width: 15px;
+				height: auto;
+				rect,
+				path,
+				polygon{
+					fill: theme-color("dark");
+				}
+			}
+		}
+		.tags{
+			ul, li{
+				display: inline;
+			}
+			&>button{
+				.badge{
+					background: theme-color("secondary");
+					color: theme-color("white");
+					// svg{
+					// 	width: 10px;
+					// 	height: auto;
+					// 	rect,
+					// 	path,
+					// 	polygon{
+					// 		fill: theme-color("white");
+					// 	}
+					// }
+				}
+			}
+		}
+		.rating{
+			line-height: 1.2;
+			outline: 0;
+			font-size: 1.55em;
+		}
+	}
+
+	.not-owner{
+		.item{
+			button{
+				color: theme-color("orange");
+			}
+		}
+	}
+}

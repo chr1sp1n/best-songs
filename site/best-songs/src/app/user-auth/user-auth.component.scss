@@ -1,0 +1,78 @@
+@import "~bootstrap/scss/functions";
+@import "../../styles/variables";
+@import "~bootstrap/scss/mixins";
+@import "../../styles/color-utility";
+
+#user-auth{
+	max-width: 480px;
+
+	.brand{
+		background: theme-color("white");
+
+		svg{
+			vertical-align: middle;
+			height: auto;
+			width: 70px;
+			margin-right: 8px;
+			rect,
+			path{
+				fill: theme-color("primary");
+			}
+		}
+
+
+		.brand-text{
+			display: inline-block;
+			vertical-align: middle;
+			color: theme-color("primary");
+			font-size: 40px;
+			word-spacing: -3px;
+			h2{
+				font-weight: bold;
+				font-size: 100%;
+				margin:0;
+				line-height: .8;
+			}
+			p{
+				padding-left: 3px;
+				font-size: 35%;
+				line-height: .8;
+				margin:0;
+			}
+		}
+
+	}
+
+	@include media-breakpoint-down(xs){
+		padding:0;
+		transform: none;
+		position: relative;
+		top: 0;
+		left: 0;
+
+		.form-group{
+			small{ display: none;}
+		}
+
+		.brand{
+			position: fixed;
+			top:0;
+			left:0;
+			width: 100%;
+			padding: 16px 0;
+			box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
+
+			svg{
+				width: 50px;
+				margin-right: 6px;
+			}
+			.brand-text{ font-size: 28px; }
+		}
+
+		.jumbotron{
+			margin-top: 82px !important;
+		}
+	}
+
+
+}

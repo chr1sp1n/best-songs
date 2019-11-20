@@ -1,0 +1,10 @@
+<div *ngIf="authenticated" class="">
+	<app-nav-bar></app-nav-bar>
+	<div class="main">
+		<app-songs-list></app-songs-list>
+	</div>
+	<app-yt-player></app-yt-player>
+</div>
+<div *ngIf="!authenticated" class="">
+	<app-user-auth></app-user-auth>
+</div>
