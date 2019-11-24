@@ -13,3 +13,4 @@
 - 	activity log
 -	fix tags manual introduction
 -	cookie disclaimer
+-   save player, order, filters state to cookie
