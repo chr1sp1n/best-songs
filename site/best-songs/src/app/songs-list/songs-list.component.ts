@@ -13,16 +13,20 @@ import { ErrorComponent } from '../error/error.component';
 import { YtPlayerService } from '../yt-player/yt-player.service';
 import { UserService } from '../_services';
 
-
 @Component({
 	selector: 'app-songs-list',
 	templateUrl: './songs-list.component.html',
 	styleUrls: ['./songs-list.component.scss'],
 	providers: [ NgbRatingConfig ]
 })
+
+
+
 export class SongsListComponent implements OnInit {
 
 	playerOpened: boolean = false;
+	scrollLetter: string;
+	scrollLetterVisible: boolean = false;
 
 	constructor(
 		public ratingConfig: NgbRatingConfig,
@@ -35,6 +39,11 @@ export class SongsListComponent implements OnInit {
 	}
 
 	ngOnInit() {
+
+		let self = this;
+		window.addEventListener('scroll', ()=>{
+			self.scrollEvent(self);
+		}, true);
 
 		this.bestSongsService.fromPlayer.subscribe( (song: BestSong) => {
 			// called on song status change
@@ -57,6 +66,42 @@ export class SongsListComponent implements OnInit {
 		});
 
 	}
+
+	private setScrollLetter(letter: string){
+		this.scrollLetter = letter;
+		this.scrollLetterVisible = true;
+		if(!this.scrollLetterVisible){
+			setTimeout(()=>{
+				this.scrollLetterVisible = false;
+			},2000);
+		}
+	}
+
+
+	private scrollEvent(self){
+		var items: NodeListOf<HTMLElement> = document.querySelectorAll(".songs-list li>.item");
+		if(items.length < 1) return;
+		for(let i in items){
+			if(items.hasOwnProperty(i)){
+				let item = items[i];
+				let half = document.documentElement.scrollTop + (window.outerHeight / 2);
+				if( Math.abs(item.offsetTop - half) < 100 ){
+					let title: HTMLElement = item.querySelector('.title');
+					if(title && typeof title.textContent[0] != 'undefined'){
+						self.scrollLetter = title.textContent[0];
+						if(!self.scrollLetterVisible){
+							self.scrollLetterVisible = true;
+							setTimeout(()=>{
+								self.scrollLetterVisible = false;
+							},500);
+						}
+						break;
+					}
+				}
+			}
+		}
+	}
+
 
 	open(what: string, song: BestSong) {
 		var component;

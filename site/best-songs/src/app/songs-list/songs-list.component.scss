@@ -217,3 +217,26 @@
 		}
 	}
 }
+
+#scroll-letter{
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .3s ease-out, visibility .3s ease-out;
+
+	position: fixed;
+	z-index: 99;
+	top: 50%;
+	right: 5%;
+	padding: 30px;
+	min-width: 100px;
+	background-color: $white;
+	font-size: 32px;
+	border-radius: 15px;
+	box-shadow: 0 0 15px #c0c0c0;
+	text-align: center;
+
+	&.shown{
+		opacity: 1;
+		visibility: visible;
+	}
+}

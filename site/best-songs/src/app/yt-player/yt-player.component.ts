@@ -56,12 +56,8 @@ export class YtPlayerComponent implements OnInit {
 	playPause(){
 		if( this.playingSong.status == 'PLAYING' ){
 			this.player.pauseVideo();
-			//if(typeof this.timerPercentage != 'undefined') this.timerPercentage.unsubscribe();
 		}else{
 			this.player.playVideo();
-			// this.timerPercentage = interval(1000).subscribe(() => {
-			// 	this.getPrecentage();
-			// });
 		}
 	}
 
