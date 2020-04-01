@@ -158,6 +158,10 @@ export class SongsListComponent implements OnInit {
 		return song.id_user == this.userService.getUser().id_user;
 	}
 
+	ownerType(song: BestSong){
+		return !this.owner(song) ? song.state == 2 ? 'friend' : 'world' : '';
+	}
+
 	private openSong(song){
 		this.bestSongsService.songs.forEach( (s, i) => {
 			if(s.id_best_songs == song.id_best_songs){

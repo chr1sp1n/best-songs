@@ -1,7 +1,7 @@
 <section class="songs-list">
 	<div class="container pt-1">
 		<ul id="list" class="list-unstyled" [ngClass]="{ 'm-player' : playerOpened }">
-			<li *ngFor="let song of songs()" class="border-bottom py-2" [ngClass]="{'border-primary': song.open, 'not-owner': !owner(song)}">
+			<li *ngFor="let song of songs()" class="border-bottom py-2" [ngClass]="{'border-primary': song.open, 'world': ownerType(song) == 'world', 'friend': ownerType(song) == 'friend', 'open': song.open }">
 				<div [id]="song.domId()" class="item d-flex align-items-center">
 					<button type="button" class="btn d-flex align-items-center flex-grow-1 p-0" (click)="open('song', song)" [attr.aria-expanded]="song.open" [attr.aria-controls]="song.domIdDet()">
 						<div class="tags-rating">
@@ -93,7 +93,7 @@
 				</div>
 				<div [id]="song.domIdDet()" class="item-details mt-1" [ngbCollapse]="!song.open">
 					<div class="d-flex align-items-end">
-						<div class="tags flex-grow-1 pr-2">
+						<div class="tags d-flex flex-grow-1 pr-2">
 							<ul class="list-unstyled" [ngClass]="{'mr-2': !owner(song) && song.songTags().length > 0}">
 								<li *ngFor="let tag of song.songTags()">
 									<button class="btn btn-link p-0 mr-1">
@@ -152,7 +152,7 @@
 										c-0.051-0.175-0.006-0.39,0.115-0.547c2.766-3.599,5.087-5.255,9.507-6.783C52.866,11.449,58,20.134,58,30
 										C58,45.439,45.439,58,30,58z"/>
 								</svg>
-								<b class="align-middle ml-2">{{song.userName}}</b>
+								<span class="align-middle ml-2">{{song.userName}}</span>
 							</span>
 						</div>
 						<div class="actions border-left mr-2">
@@ -243,7 +243,7 @@
 								</svg>
 							</button>
 						</div>
-						<ngb-rating class="rating" [(rate)]="song.rating" (rateChange)="rating(song)" resettable="true" [readonly]="!song.open || !owner(song)" max="5"></ngb-rating>						
+						<ngb-rating class="rating" [(rate)]="song.rating" (rateChange)="rating(song)" resettable="true" [readonly]="!song.open || !owner(song)" max="5"></ngb-rating>
 					</div>
 				</div>
 			</li>

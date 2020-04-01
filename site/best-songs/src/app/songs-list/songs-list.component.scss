@@ -100,9 +100,17 @@
 	.item-details{
 
 		.owner-info{
+			display: inline-block;
+			white-space: nowrap;
+			margin-left: auto;
 			svg{
 				width: 18px;
 				height: auto;
+				fill: rgba($black, .5);
+			}
+			span{
+				font-weight: lighter;
+				color: rgba($black, .7);
 			}
 		}
 
@@ -149,10 +157,62 @@
 		}
 	}
 
-	.not-owner{
-		.item{
-			button{
-				color: theme-color("orange");
+	li{
+		&.friend,
+		&.world{
+			.item{
+				& > button{
+					position: relative;
+					&:after {
+						content: "";
+						background-size: contain;
+						background-position: right center;
+						background-repeat: no-repeat;
+						opacity: .25;
+						top: 5px;
+						left: 0;
+						bottom: 0;
+						right: 35px;
+						position: absolute;
+						z-index: -1;
+						transition: opacity .3s ease-out;
+					}
+				}
+			}
+		}
+
+
+		&.friend{
+			.item{
+				& > button{
+					&:after {
+						background-image: url("/assets/best-songs/images/friend.svg");
+					}
+				}
+			}
+		}
+
+		&.world{
+			.item{
+				& > button{
+					&:after {
+						background-image: url("/assets/best-songs/images/world.svg");
+					}
+				}
+			}
+		}
+
+
+		&.open{
+			&.friend,
+			&.world{
+				.item{
+					& > button{
+						&:after {
+							opacity: 0;
+						}
+					}
+				}
 			}
 		}
 	}
