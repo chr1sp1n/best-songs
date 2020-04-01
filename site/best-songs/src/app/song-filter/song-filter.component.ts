@@ -41,7 +41,16 @@ export class SongFilterComponent implements OnInit {
 	}
 
 	tags(){
-		return this.bestSongsService.tags;
+		return this.bestSongsService.tags.sort(
+			( a:Tag, b:Tag ) => {
+				if ( a.label < b.label ){
+					return -1;
+				}else if ( a.label > b.label ){
+					return  1;
+				}
+				return 0;
+			}
+		);
 	}
 
 	logic(state?: boolean){
@@ -97,7 +106,7 @@ export class SongFilterComponent implements OnInit {
 			if(this.bestSongsService.filterLogic || tags.length == 0){
 				if( this.bestSongsService.filterText &&
 					this.bestSongsService.filterText != '' &&
-					this.bestSongsService.songs[i].title.indexOf( this.bestSongsService.filterText ) == -1
+					this.bestSongsService.songs[i].title.toLowerCase().indexOf( this.bestSongsService.filterText.toLowerCase() ) == -1
 				){
 					this.bestSongsService.songs[i].visible = false;
 				}
